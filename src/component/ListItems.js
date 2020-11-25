@@ -30,7 +30,7 @@ class ListItems extends Component {
       ));
 
       return (
-        <div>
+        <div style={{marginTop:'20px'}}>
           <div className="container-fluid d-flex justify-content-center">
             <div className="row">{this.items}</div>
           </div>
