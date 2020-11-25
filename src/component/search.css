@@ -43,4 +43,11 @@ a.search-icon{
     margin-right: 8px;
 }
 
+div.form-group{
+    margin-bottom: 0%;
+}
+
+input.rbt-input-main.form-control.rbt-input{
+    background-color:#e6eaef;
+}
 

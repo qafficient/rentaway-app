@@ -20,7 +20,7 @@ class ListItems extends Component {
       return <div></div>;
     } else {
       this.items = this.state.listItems.map((item) => (
-        <div className="col-md-4">
+        <div className="col-md-4 margin-below">
           <ListItem
             ImgSrc={item.imgSrc}
             title={item.title}

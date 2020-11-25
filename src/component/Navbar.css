@@ -20,5 +20,9 @@
     display: flex !important; 
     flex-direction: column !important; 
   }
+
+  div.margin-below {
+    margin-bottom: 10px;
+  }
 }
 

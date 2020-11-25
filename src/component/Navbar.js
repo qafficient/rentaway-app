@@ -18,11 +18,11 @@ class NavbarItem extends Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Search />
 
-          <div style={{ width: "max-content", marginTop: "4px" }}>
+          <div style={{ width: "max-content" }}>
             <button
               type="button"
               class="btn btn-danger"
-              style={{ width: "inherit" }}
+              style={{ width: "inherit", borderRadius: '20px'}}
             >
               Login / SignUp
             </button>
