@@ -22,8 +22,8 @@ class ListItems extends Component {
       this.items = this.state.listItems.map((item) => (
         <div className="col-md-4 margin-below">
           <ListItem
-            ImgSrc={item.imgSrc}
-            title={item.title}
+            ImgSrc={item.images[0].location}
+            title={item.name}
             price={item.price}
           />
         </div>

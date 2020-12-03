@@ -6,9 +6,16 @@ import React, { useState } from "react";
 
 
 const Search = () =>  {
+
     const [singleSelections, setSingleSelections] = useState([]);
     var options = ['Beds', 'Toys', 'Washing machines', 'Matress', 'Micro oven',
     'TV', 'Sofa'];
+
+    const clickevent = (event) =>{
+        event.preventDefault();
+        console.log({singleSelections}.singleSelections[0])
+    }
+  
     return (
       <div className="mainland-search">
         <div className="search-input">
@@ -24,13 +31,15 @@ const Search = () =>  {
                 selected={singleSelections}
                 />
             </Form.Group>
-            <a className="search-icon">
+            <a className="search-icon" onClick={clickevent}> 
             <BsSearch />
           </a>
         </div>
       </div>
     );
-  
+
+   
 }
+
 
 export default Search;
