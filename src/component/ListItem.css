@@ -7,3 +7,7 @@ div.card :hover {
   div.card {
     align-items: center;
   }
+
+  .h5 {
+    font-size: 1.0rem !important;
+}
