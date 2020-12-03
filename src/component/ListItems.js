@@ -5,7 +5,7 @@ import axios from "axios";
 class ListItems extends Component {
   state = {
     listItems: [],
-    dataFile: "/listitem",
+    dataFile: "http://3.15.147.176:3001/listitem",
   };
 
   componentWillMount() {
