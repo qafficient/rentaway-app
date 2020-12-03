@@ -5,7 +5,7 @@ import "./ListItem.css";
 const ListItem = (props) => {
   return (
     <div className="card">
-      <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "100%" }}>
         <Card.Img variant="top" src={props.ImgSrc} />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
