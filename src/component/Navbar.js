@@ -1,18 +1,31 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Navbar } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
 import Search from "./Search";
 import logo from "../asset/images/logo/rentaway-logo.png";
 import "./Navbar.css";
+import AddItem from "./addItem";
+
 
 class NavbarItem extends Component {
+
+  state = {
+    addItemModalShow : false
+  }
+  constructor(props){
+    super(props);
+    this.state = { addItemModalShow: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   handleClick(event) {
     event.preventDefault();
-    console.log("The link was clicked.");
+    this.setState({ addItemModalShow: true });
   }
 
   render() {
+
     return (
       <div class="shadow p-3 mb-5 bg-white rounded">
         <Navbar fixed="top" bg="white" expand="lg" className="navbar-box">
@@ -22,24 +35,31 @@ class NavbarItem extends Component {
             </a>
             <b>Rent Away</b>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
 
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav>
-              <Nav.Link href="#home">
+          <Navbar.Collapse id="basic-navbar-nav" className="navbar-bg">
+            <Nav className="mr-auto nav-link-desktop nav-link-text">
+              <Nav.Link  onClick={this.handleClick}>Login / SignUp</Nav.Link>
+              <Nav.Link  onClick={this.handleClick}>Rent an Item </Nav.Link>
+
+              <Nav.Link  href="#link">City</Nav.Link>
+              <Nav.Link  href="#link">Categories</Nav.Link>
+            </Nav>
+          <Nav>
+            <Nav.Link>
+              <button
+                type="button"
+                class="btn btn-danger nav-link-mobile"
+                onClick={this.handleClick}
+                style={{ width: "inherit", borderRadius: "5px" }}
+              >
+                Login / SignUp
+              </button>
+            </Nav.Link>
+            <Nav.Link>
                 <button
                   type="button"
-                  class="btn btn-danger"
-                  onClick={this.handleClick}
-                  style={{ width: "inherit", borderRadius: "5px" }}
-                >
-                  Login / SignUp
-                </button>
-              </Nav.Link>
-              <Nav.Link href="#link">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
+                  class="btn btn-secondary nav-link-mobile"
                   onClick={this.handleClick}
                   style={{ width: "inherit", borderRadius: "5px" }}
                 >
@@ -49,6 +69,9 @@ class NavbarItem extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+
+        <AddItem show={this.state.addItemModalShow}/>
+
       </div>
     );
   }
