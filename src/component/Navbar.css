@@ -35,3 +35,43 @@
 
 }
 
+@media(max-width: 600px){
+
+  .navbar-bg{
+    background: white;
+  }
+}
+
+/* @media(max-width: 600px){
+  .nav-link-desktop{
+    display: block !important;
+  }
+} */
+
+@media(min-width: 900px){
+  .nav-link-desktop{
+    display: none !important;
+    text-align: left !important;
+  }
+}
+
+@media(max-width: 600px){
+  .nav-link-mobile{
+    display: none !important;
+  }
+
+  .nav-link{
+    color: purple !important;
+    margin: 10px;
+  }
+
+
+  .nav-link-text{
+    text-align: left !important;
+  }
+}
+
+
+
+
+
