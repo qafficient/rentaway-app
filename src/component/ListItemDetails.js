@@ -11,7 +11,7 @@ class ListItemDetails extends Component {
 
   state = {
     itemDetails: null,
-    dataFile: "http://localhost:3001/listitem/" + this.props.match.params.id,
+    dataFile: "http://3.15.147.176:3001/listitem/" + this.props.match.params.id,
   };
 
   componentWillMount() {
