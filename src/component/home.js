@@ -10,8 +10,6 @@ import mastheadImg4 from "../asset/images/rent-imgs/rent-image-4.jpg";
 
 class Home extends Component {
 
-
-
   state = {
     images: [],
   };
