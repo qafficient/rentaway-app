@@ -40,3 +40,8 @@
 .spacer{
   margin: 20px;
 }
+
+.btn-menu-open{
+  opacity: .5 !important;
+}
+
