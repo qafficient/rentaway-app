@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { Form } from "react-bootstrap";
@@ -13,12 +13,12 @@ class AddItem extends Component {
   }
 
   componentWillReceiveProps() {
-    this.state.hide = false;
+    this.setState({hide: false});
   }
   render() {
     console.log(this.props.show);
     if (this.props.show) {
-      this.state.show = this.props.show;
+        this.state.show = this.props.show;
     }
 
     return (
