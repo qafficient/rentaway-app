@@ -8,13 +8,13 @@ div.itemDetailscontainer {
 }
 
 div.listItemImages {
-  width: 50% !important;
+  width: 70% !important;
   box-sizing: border-box;
   padding: 15px;
 }
 
 div.listItemDetails {
-  width: 50% !important;
+  width: 30% !important;
   box-sizing: border-box;
   padding: 15px;
   text-align: left;

@@ -6,13 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
-  // <BrowserRouter
-  //    <div>
-  //     <Route path="/" exact component={App} />
-
-  //       <Route path="/ListItemDetails" component={withRouter(ListItemDetails)} />
-  //   </div>
-  // </BrowserRouter>),
 
   <React.StrictMode>
     <App />

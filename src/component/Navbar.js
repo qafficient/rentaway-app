@@ -36,8 +36,8 @@ class NavbarItem extends Component {
           <Navbar.Brand>
             <a href="/">
               <img src={logo} alt="RentAway" className="logo-image" />
-            </a>
             <b>Rent Away</b>
+            </a>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={this.onHamburgerMenuClick}/>
 
