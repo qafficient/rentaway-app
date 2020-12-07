@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import ListItems from "./ListItems";
-import {Carousel, CarouselItem} from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import "./home.css";
 
 import mastheadImg1 from "../asset/images/rent-imgs/rent-image-1.jpg";
 import mastheadImg2 from "../asset/images/rent-imgs/rent-image-2.jpg";
 import mastheadImg3 from "../asset/images/rent-imgs/rent-image-3.jpg";
 import mastheadImg4 from "../asset/images/rent-imgs/rent-image-4.jpg";
+import Categories from "./categories";
 
 class Home extends Component {
-
   state = {
     images: [],
   };
@@ -21,44 +21,38 @@ class Home extends Component {
     this.state.images.push(mastheadImg1);
     this.carouselImages = this.state.images.map((item) => (
       <Carousel.Item key={item._id}>
-        <img
-          className="d-block w-100"
-          src={item}
-          alt="First slide"
-        />
-        
+        <img className="d-block w-100" src={item} alt="First slide" />
       </Carousel.Item>
     ));
     return (
-      
       <div>
         <div className="masthead-container">
-        <Carousel>
-         {this.carouselImages}
-        </Carousel>
+          <Carousel>{this.carouselImages}</Carousel>
         </div>
-      <div
-        id="list-items-container"
-        style={{
-          borderRadius: "2px",
-          background: "#f7f7f7",
-          marginTop: "5px",
-        }}
-      >
         <div>
+          <Categories/>
+        </div>
+        <div
+          id="list-items-container"
+          style={{
+            borderRadius: "2px",
+            background: "#f7f7f7",
+            marginTop: "5px",
+          }}
+        >
           <div>
-            <h5>New Launches</h5>
+            <div>
+              <h5>New Launches</h5>
+            </div>
+            <ListItems />
+          </div>
+          <div className="spacer" />
+          <div>
+            <h5>Most Popular</h5>
           </div>
           <ListItems />
         </div>
-        <div className="spacer" />
-        <div>
-          <h5>Most Popular</h5>
-        </div>
-        <ListItems />
       </div>
-      </div>
-
     );
   }
 }
