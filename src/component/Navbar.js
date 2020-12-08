@@ -6,22 +6,29 @@ import Search from "./Search";
 import logo from "../asset/images/logo/rentaway-logo.png";
 import "./Navbar.css";
 import AddItem from "./addItem";
-
+import Login from './login/login';
 
 class NavbarItem extends Component {
 
   state = {
-    addItemModalShow : false
+    addItemModalShow : false, showLoginModal: false
   }
   constructor(props){
     super(props);
     this.state = { addItemModalShow: false };
     this.handleClick = this.handleClick.bind(this);
+    this.showLoginModal = this.showLoginModal.bind(this);
+
   }
 
   handleClick(event) {
     event.preventDefault();
     this.setState({ addItemModalShow: true });
+  }
+
+  showLoginModal(event) {
+    event.preventDefault();
+    this.setState({ showLoginModal: true });
   }
 
   render() {
@@ -39,7 +46,7 @@ class NavbarItem extends Component {
 
           <Navbar.Collapse id="basic-navbar-nav" className="navbar-bg">
             <Nav className="mr-auto nav-link-desktop nav-link-text">
-              <Nav.Link  onClick={this.handleClick}>Login / SignUp</Nav.Link>
+              <Nav.Link  onClick={this.showLoginModal}>Login / SignUp</Nav.Link>
               <Nav.Link  onClick={this.handleClick}>Rent an Item </Nav.Link>
 
               <Nav.Link  href="#link">City</Nav.Link>
@@ -50,7 +57,7 @@ class NavbarItem extends Component {
               <button
                 type="button"
                 class="btn btn-danger nav-link-mobile"
-                onClick={this.handleClick}
+                onClick={this.showLoginModal}
                 style={{ width: "inherit", borderRadius: "5px" }}
               >
                 Login / SignUp
@@ -71,7 +78,7 @@ class NavbarItem extends Component {
         </Navbar>
 
         <AddItem show={this.state.addItemModalShow}/>
-
+        <Login show={this.state.showLoginModal}/>
       </div>
     );
   }
