@@ -1,0 +1,25 @@
+.masthead-container{
+    padding: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    box-sizing: border-box;
+}
+
+.masthead-container img {
+    border-radius: 15px;
+    object-fit: cover;
+}
+@media all and (min-width: 700px){
+
+    .masthead-container img {
+        height: 500px !important;
+    }
+}
+
+@media all and (max-width: 600px){
+    .masthead-container{
+        padding: 5px;
+        width: 100%;
+        margin-left: 0px;
+    }
+}

@@ -38,18 +38,20 @@ class NavbarItem extends Component {
           <Navbar.Brand>
             <a href="/">
               <img src={logo} alt="RentAway" className="logo-image" />
-            </a>
             <b>Rent Away</b>
+            </a>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={this.onHamburgerMenuClick}/>
 
           <Navbar.Collapse id="basic-navbar-nav" className="navbar-bg">
             <Nav className="mr-auto nav-link-desktop nav-link-text">
               <Nav.Link  onClick={this.showLoginModal}>Login / SignUp</Nav.Link>
               <Nav.Link  onClick={this.handleClick}>Rent an Item </Nav.Link>
 
-              <Nav.Link  href="#link">City</Nav.Link>
+              <Nav.Link  href="#link">Choose City</Nav.Link>
               <Nav.Link  href="#link">Categories</Nav.Link>
+              <Nav.Link  href="#link">Contact Us</Nav.Link>
+
             </Nav>
           <Nav>
             <Nav.Link>
