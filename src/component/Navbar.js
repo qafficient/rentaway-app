@@ -1,8 +1,7 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { Navbar } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
-import Search from "./Search";
 import logo from "../asset/images/logo/rentaway-logo.png";
 import "./Navbar.css";
 import AddItem from "./addItem";
