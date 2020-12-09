@@ -1,34 +1,37 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { Navbar } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
 import logo from "../asset/images/logo/rentaway-logo.png";
 import "./Navbar.css";
 import AddItem from "./addItem";
-import Search from "./Search";
-
+import Login from './login/login';
 
 class NavbarItem extends Component {
 
   state = {
-    addItemModalShow : false
+    addItemModalShow : false, showLoginModal: false
   }
   constructor(props){
     super(props);
-    this.state = { addItemModalShow: false };
-    this.handleClick = this.handleClick.bind(this);
+    this.state = { addItemModalShow: false, showLoginModal: false };
+    this.showAddItem = this.showAddItem.bind(this);
+    this.showLoginModal = this.showLoginModal.bind(this);
+
   }
 
-  handleClick(event) {
+  showAddItem(event) {
     event.preventDefault();
-    this.setState({ addItemModalShow: true });
     document.getElementById('list-items-container').classList.toggle('btn-menu-open');
+    this.setState({ addItemModalShow: true, showLoginModal: false });
   }
 
-  onHamburgerMenuClick(event) {
+  showLoginModal(event) {
     event.preventDefault();
     document.getElementById('list-items-container').classList.toggle('btn-menu-open');
+    this.setState({ showLoginModal: true, addItemModalShow: false });
   }
+
 
   render() {
 
@@ -45,9 +48,8 @@ class NavbarItem extends Component {
 
           <Navbar.Collapse id="basic-navbar-nav" className="navbar-bg">
             <Nav className="mr-auto nav-link-desktop nav-link-text">
-              <Nav.Link eventKey="1" onClick={this.handleClick}>Login / SignUp</Nav.Link>
-              <Nav.Link eventKey="2" onClick={this.handleClick}>Rent an Item </Nav.Link>
-
+              <Nav.Link eventKey="1" onClick={this.showLoginModal}>Login / SignUp</Nav.Link>
+              <Nav.Link eventKey="2" onClick={this.showAddItem}>Rent an Item </Nav.Link>
               <Nav.Link eventKey="3" href="#link">Choose City</Nav.Link>
               <Nav.Link eventKey="4" href="#link">Categories</Nav.Link>
               <Nav.Link eventKey="5"  href="#link">Contact Us</Nav.Link>
@@ -58,7 +60,7 @@ class NavbarItem extends Component {
               <button
                 type="button"
                 class="btn btn-danger nav-link-mobile"
-                onClick={this.handleClick}
+                onClick={this.showLoginModal}
                 style={{ width: "inherit", borderRadius: "5px" }}
               >
                 Login / SignUp
@@ -68,7 +70,7 @@ class NavbarItem extends Component {
                 <button
                   type="button"
                   class="btn btn-secondary nav-link-mobile"
-                  onClick={this.handleClick}
+                  onClick={this.showAddItem}
                   style={{ width: "inherit", borderRadius: "5px" }}
                 >
                   Rent Item
@@ -78,10 +80,20 @@ class NavbarItem extends Component {
           </Navbar.Collapse>
         </Navbar>
 
-        <AddItem show={this.state.addItemModalShow}/>
-
+        <div>
+          {this.renderModal()}
+        </div>
       </div>
     );
+  }
+
+  renderModal(){
+    if(this.state.addItemModalShow){
+      return <AddItem show={this.state.addItemModalShow}  />
+    } 
+    else if(this.state.showLoginModal){
+      return <Login show={this.state.showLoginModal} />
+    }
   }
 }
 
