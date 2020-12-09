@@ -1,6 +1,5 @@
 import { Component } from "react";
 import React from "react-bootstrap";
-import { Badge } from "react-bootstrap";
 import "./categories.css";
 
 import digitalspace from "../asset/images/rent-imgs/categories/digital-space.png";
@@ -10,6 +9,12 @@ import gamesIcon from "../asset/images/rent-imgs/categories/games-icon.png";
 import furnituresIcon from "../asset/images/rent-imgs/categories/furnitures-icon.png";
 
 class Categories extends Component {
+
+  onCategoryClick(event) {
+      event.preventDefault();
+    console.log("category clicked" + event.target.text);
+  }
+
   render() {
     return (
       <div>
@@ -19,14 +24,14 @@ class Categories extends Component {
           </span>
         </div>
         <div className="categories-container">
-          <div className="category">
-            <img src={furnituresIcon}></img>
+          <div className="category" onClick={this.onCategoryClick}>
+            <img src={furnituresIcon} alt="Furniture"></img>
             <span>Furnitures</span>
           </div>
 
           <div className="category">
             <img src={gamesIcon}></img>
-            <span>Vidoe Games</span>
+            <span>Video Games</span>
           </div>
 
           <div className="category">

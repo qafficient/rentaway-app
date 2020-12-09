@@ -22,7 +22,7 @@ class ListItemDetails extends Component {
 
   render() {
     if (this.state.itemDetails === null) {
-      return <div></div>;
+      return <div>Fetching Data...</div>;
     } else {
       console.log(this.state.itemDetails);
 
