@@ -14,21 +14,22 @@ class NavbarItem extends Component {
   }
   constructor(props){
     super(props);
-    this.state = { addItemModalShow: false };
-    this.handleClick = this.handleClick.bind(this);
+    this.state = { addItemModalShow: false, showLoginModal: false };
+    this.showAddItem = this.showAddItem.bind(this);
     this.showLoginModal = this.showLoginModal.bind(this);
 
   }
 
-  handleClick(event) {
+  showAddItem(event) {
     event.preventDefault();
-    this.setState({ addItemModalShow: true });
+    this.setState({ addItemModalShow: true, showLoginModal: false });
   }
 
   showLoginModal(event) {
     event.preventDefault();
-    this.setState({ showLoginModal: true });
+    this.setState({ showLoginModal: true, addItemModalShow: false });
   }
+
 
   render() {
 
@@ -46,7 +47,7 @@ class NavbarItem extends Component {
           <Navbar.Collapse id="basic-navbar-nav" className="navbar-bg">
             <Nav className="mr-auto nav-link-desktop nav-link-text">
               <Nav.Link  onClick={this.showLoginModal}>Login / SignUp</Nav.Link>
-              <Nav.Link  onClick={this.handleClick}>Rent an Item </Nav.Link>
+              <Nav.Link  onClick={this.showAddItem}>Rent an Item </Nav.Link>
 
               <Nav.Link  href="#link">Choose City</Nav.Link>
               <Nav.Link  href="#link">Categories</Nav.Link>
@@ -68,7 +69,7 @@ class NavbarItem extends Component {
                 <button
                   type="button"
                   class="btn btn-secondary nav-link-mobile"
-                  onClick={this.handleClick}
+                  onClick={this.showAddItem}
                   style={{ width: "inherit", borderRadius: "5px" }}
                 >
                   Rent Item
@@ -78,10 +79,20 @@ class NavbarItem extends Component {
           </Navbar.Collapse>
         </Navbar>
 
-        <AddItem show={this.state.addItemModalShow}/>
-        <Login show={this.state.showLoginModal}/>
+        <div>
+          {this.renderModal()}
+        </div>
       </div>
     );
+  }
+
+  renderModal(){
+    if(this.state.addItemModalShow){
+      return <AddItem show={this.state.addItemModalShow}  />
+    } 
+    else if(this.state.showLoginModal){
+      return <Login show={this.state.showLoginModal} />
+    }
   }
 }
 

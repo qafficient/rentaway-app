@@ -1,7 +1,12 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { Form } from "react-bootstrap";
+import {
+  FacebookLoginButton,
+  GoogleLoginButton,
+} from "react-social-login-buttons";
+import "./login.css";
 
 class Login extends Component {
   constructor(props) {
@@ -22,31 +27,40 @@ class Login extends Component {
 
     return (
       <Modal show={this.state.show && !this.state.hide}>
-        <Modal.Header>
+        <Modal.Header >
           <Modal.Title>Login to RentAway</Modal.Title>
+          <Button variant="" onClick={() => this.setState({ hide: true, show: false })}><b>X</b></Button>
         </Modal.Header>
 
         <Modal.Body>
-          <Form>
-            <Form.Group controlId="login-form">
-              <Form.Label>User Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter User name" />
+          <Form className="login-modal">
+            <FacebookLoginButton className="social-login" align="center" />
+            <GoogleLoginButton className="social-login" align="center" />
 
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Enter your password" />
+            <div className="text-center pt3">--- Or ---</div>
+            <Form.Group controlId="login-form">
+              <div className="formgrp">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Enter Email" />
+              </div>
+              <div className="formgrp">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Enter your password"
+                />
+              </div>
             </Form.Group>
+            <Button className="btn-lg btn-blue btn-block">Login</Button>
+
+            <Modal.Footer>
+              <div>
+                Don't have an account:
+                <a href="" className="signup-text"> Sign Up</a>
+              </div>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
-
-        <Modal.Footer>
-          <Button
-            variant="secondary"
-            onClick={() => this.setState({ hide: true, show: false })}
-          >
-            Close
-          </Button>
-          <Button variant="primary">Login</Button>
-        </Modal.Footer>
       </Modal>
     );
   }

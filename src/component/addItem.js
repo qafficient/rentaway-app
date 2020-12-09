@@ -16,7 +16,6 @@ class AddItem extends Component {
     this.setState({hide: false});
   }
   render() {
-    console.log(this.props.show);
     if (this.props.show) {
         this.state.show = this.props.show;
     }
@@ -59,6 +58,8 @@ class AddItem extends Component {
       </Modal>
     );
   }
+
+  
 }
 
 export default AddItem;
