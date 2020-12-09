@@ -1,0 +1,23 @@
+.login-modal{
+    margin: 30px
+}
+
+.social-login{
+    margin-bottom: 10px !important;
+}
+
+.btn-lg.btn-blue.btn-block{
+    margin-top: 10px;
+}
+
+.formgrp{
+    padding: 5px !important;
+}
+.modal-footer{
+    justify-content: center !important;
+}
+
+.signup-text{
+    color: #ff002e !important;
+    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif !important
+}
