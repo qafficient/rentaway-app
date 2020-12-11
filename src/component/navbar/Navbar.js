@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Navbar } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
-import logo from "../asset/images/logo/rentaway-logo.png";
+import logo from "../../asset/images/logo/rentaway-logo.png";
 import "./Navbar.css";
-import AddItem from "./addItem";
-import Login from './login/login';
+import AddItem from "../item/addItem";
+import Login from '../login/login';
 
 class NavbarItem extends Component {
 
@@ -35,7 +35,7 @@ class NavbarItem extends Component {
 
     return (
       <div class="shadow p-3 mb-5 bg-white rounded">
-        <Navbar fixed="top" bg="white" expand="lg" className="navbar-box">
+        <Navbar collapseOnSelect fixed="top" bg="white" expand="lg" className="navbar-box">
           <Navbar.Brand>
             <a href="/">
               <img src={logo} alt="RentAway" className="logo-image" />
@@ -46,12 +46,11 @@ class NavbarItem extends Component {
 
           <Navbar.Collapse id="basic-navbar-nav" className="navbar-bg">
             <Nav className="mr-auto nav-link-desktop nav-link-text">
-              <Nav.Link  onClick={this.showLoginModal}>Login / SignUp</Nav.Link>
-              <Nav.Link  onClick={this.showAddItem}>Rent an Item </Nav.Link>
-
-              <Nav.Link  href="#link">Choose City</Nav.Link>
-              <Nav.Link  href="#link">Categories</Nav.Link>
-              <Nav.Link  href="#link">Contact Us</Nav.Link>
+              <Nav.Link eventKey="1" onClick={this.showLoginModal}>Login / SignUp</Nav.Link>
+              <Nav.Link eventKey="2" onClick={this.showAddItem}>Rent an Item </Nav.Link>
+              <Nav.Link eventKey="3" href="#link">Choose City</Nav.Link>
+              <Nav.Link eventKey="4" href="#link">Categories</Nav.Link>
+              <Nav.Link eventKey="5"  href="#link">Contact Us</Nav.Link>
 
             </Nav>
           <Nav>

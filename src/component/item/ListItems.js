@@ -28,7 +28,7 @@ class ListItems extends Component {
   render() {
     if (this.state.listItems.length === 0) {
       // Render loading state ...
-      return <div></div>;
+      return <div> Loading... </div>;
     } else {
       this.items = this.state.listItems.map((item) => (
         <div

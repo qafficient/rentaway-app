@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ListItems from "./ListItems";
+import ListItems from "./item/ListItems";
 import { Carousel } from "react-bootstrap";
 import "./home.css";
 
@@ -7,7 +7,7 @@ import mastheadImg1 from "../asset/images/rent-imgs/rent-image-1.jpg";
 import mastheadImg2 from "../asset/images/rent-imgs/rent-image-2.jpg";
 import mastheadImg3 from "../asset/images/rent-imgs/rent-image-3.jpg";
 import mastheadImg4 from "../asset/images/rent-imgs/rent-image-4.jpg";
-import Categories from "./categories";
+import Categories from "./category/categories";
 
 class Home extends Component {
   state = {
@@ -33,7 +33,7 @@ class Home extends Component {
           <Categories/>
         </div>
         <div
-          id="list-items-container"
+          
           style={{
             borderRadius: "2px",
             background: "#f7f7f7",

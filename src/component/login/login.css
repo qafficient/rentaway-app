@@ -21,3 +21,7 @@
     color: #ff002e !important;
     font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif !important
 }
+
+.nav-item.nav-link.active{
+    background-color: rgb(243 243 243) !important;
+}
