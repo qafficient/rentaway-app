@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Navbar } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
-import logo from "../asset/images/logo/rentaway-logo.png";
+import logo from "../../asset/images/logo/rentaway-logo.png";
 import "./Navbar.css";
-import AddItem from "./addItem";
-import Login from './login/login';
+import AddItem from "../item/addItem";
+import Login from '../login/login';
 
 class NavbarItem extends Component {
 
@@ -22,13 +22,11 @@ class NavbarItem extends Component {
 
   showAddItem(event) {
     event.preventDefault();
-    document.getElementById('list-items-container').classList.toggle('btn-menu-open');
     this.setState({ addItemModalShow: true, showLoginModal: false });
   }
 
   showLoginModal(event) {
     event.preventDefault();
-    document.getElementById('list-items-container').classList.toggle('btn-menu-open');
     this.setState({ showLoginModal: true, addItemModalShow: false });
   }
 

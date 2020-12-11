@@ -1,13 +1,10 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import { Carousel, Jumbotron, Button } from "react-bootstrap";
 import "./ListItemDetails.css";
 import ListItems from "./ListItems";
 
 class ListItemDetails extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   state = {
     itemDetails: null,
@@ -24,8 +21,6 @@ class ListItemDetails extends Component {
     if (this.state.itemDetails === null) {
       return <div>Fetching Data...</div>;
     } else {
-      console.log(this.state.itemDetails);
-
       this.carouselImages = this.state.itemDetails.images.map((item) => (
         <Carousel.Item key={item._id}>
           <img

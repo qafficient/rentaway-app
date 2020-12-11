@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { Form } from "react-bootstrap";
 
 class AddItem extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +16,7 @@ class AddItem extends Component {
   componentWillReceiveProps() {
     this.setState({hide: false});
   }
+  
   render() {
     if (this.props.show) {
         this.state.show = this.props.show;
@@ -41,6 +43,13 @@ class AddItem extends Component {
             <Form.Group controlId="formBasicCategory">
               <Form.Label>Category</Form.Label>
               <Form.Control type="text" placeholder="Desctipion" />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPrice">
+              <Form.Label>Price (in INR)</Form.Label>
+              <Form.Control type="number" placeholder="Rent Price" />
+              <Form.File id="exampleFormControlFile1" label="Upload item images" multiple/>
+
             </Form.Group>
             
           </Form>
