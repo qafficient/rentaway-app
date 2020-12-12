@@ -15,8 +15,14 @@ class Login extends Component {
       show: false,
       hide: false,
       key: "login",
+      login: {
+        userName: "",
+        password: "",
+      },
     };
     this.openSignUpTab = this.openSignUpTab.bind(this);
+    this.submit = this.submit.bind(this);
+
   }
 
   componentWillReceiveProps() {
@@ -28,6 +34,29 @@ class Login extends Component {
     this.setState({
       key: "register",
     });
+  }
+
+  isValid(field, type) {
+    var login = this.state.login;
+
+    if (type === "email") {
+      login.userName = field.target.value;
+      }
+    if (type === "password") {
+      login.password = field.target.value;
+    }
+    this.setState({login: login});
+  }
+
+  submit(event){
+    event.preventDefault();
+    console.log(this.state.login);
+    localStorage.setItem('isLoggedIn', true);
+    localStorage.setItem('username', this.state.login.userName);
+
+    this.setState({ hide: true, show: false, key: "login" })
+    window.location.reload();
+
   }
 
   render() {
@@ -92,7 +121,7 @@ class Login extends Component {
 
   showLogin() {
     return (
-      <Form className="login-modal">
+      <Form onSubmit={this.submit} className="login-modal">
         <FacebookLoginButton className="social-login" align="center" />
         <GoogleLoginButton className="social-login" align="center" />
 
@@ -100,17 +129,22 @@ class Login extends Component {
         <Form.Group controlId="login-form">
           <div className="formgrp">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter Email" />
+            <Form.Control
+              type="email"
+              placeholder="Enter Email"
+              onChange={(item) => this.isValid(item, "email")}
+            />
           </div>
           <div className="formgrp">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Enter your password" />
+            <Form.Control
+              type="password"
+              placeholder="Enter your password"
+              onChange={(item) => this.isValid(item, "password")}
+            />
           </div>
         </Form.Group>
-        <Button
-          type="submit"
-          className="btn-lg btn-blue btn-block"
-        >
+        <Button type="submit" className="btn-lg btn-blue btn-block">
           Login
         </Button>
       </Form>

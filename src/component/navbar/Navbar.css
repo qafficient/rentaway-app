@@ -57,7 +57,7 @@
   }
 
   .nav-link{
-    color: purple !important;
+    color: #212529 !important;
     margin: 10px;
   }
 
@@ -73,7 +73,23 @@
   button.navbar-toggler.collapsed{
     margin-right: 5px !important;
   }
-  
+
+  div#myaccount-info{
+    display: none;
+  }
+  div#basic-navbar-nav{
+    padding: 15px !important;
+    width: 100%;
+  }
+
+  .mr-auto.nav-link-desktop.nav-link-text.navbar-nav{
+    width: inherit;
+  }
+  .mr-auto.nav-link-desktop.nav-link-text.navbar-nav 
+    .nav-link{
+    border-bottom: 1px solid gray !important;
+  }
+ 
 }
 
 
