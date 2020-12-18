@@ -1,23 +1,53 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Carousel, Jumbotron, Button } from "react-bootstrap";
+import { Carousel, Jumbotron, Button, Badge } from "react-bootstrap";
 import "./ListItemDetails.css";
 import ListItems from "./ListItems";
+import "font-awesome/less/font-awesome.less";
 
 class ListItemDetails extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   state = {
     itemDetails: null,
-    dataFile: "http://3.15.147.176:3001/listitem/" + this.props.match.params.id,
+    itemId: this.props.match.params.id,
   };
 
   componentWillMount() {
-    axios.get(this.state.dataFile).then((res) => {
+    this.fetchListItemDetails(this.state.itemId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      this.fetchListItemDetails(this.props.match.params.id);
+      var cntNum = document.getElementById("show-owner-details");
+      cntNum.classList.value = "hidden";
+      var shwBtn = document.getElementById("show-owner");
+      shwBtn.classList.value = "";
+    }
+  }
+
+  fetchListItemDetails(id) {
+    axios.get("http://3.15.147.176:3001/listitem/" + id).then((res) => {
       this.setState({ itemDetails: res.data });
     });
   }
 
+  showOwnerDetails() {
+    var cntNum = document.getElementById("show-owner-details");
+    cntNum.classList.toggle("hidden");
+    var shwBtn = document.getElementById("show-owner");
+    shwBtn.classList.toggle("hidden");
+  }
+
   render() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
     if (this.state.itemDetails === null) {
       return <div>Fetching Data...</div>;
     } else {
@@ -40,16 +70,51 @@ class ListItemDetails extends Component {
             <div className="listItemDetails">
               <Jumbotron>
                 <h4>{this.state.itemDetails.name}</h4>
-                <p>
-                {this.state.itemDetails.description}
-                </p>
+                <p>{this.state.itemDetails.description}</p>
 
-                <p>
-                Rent Price: {this.state.itemDetails.price}
-                </p>
-                <p>
-                  <Button variant="primary">Contact Owner</Button>
-                </p>
+                <div>
+                  <h5>Rent Price:</h5>
+                  <h5>
+                    <Badge variant="info">
+                      <span class="fa fa-inr"></span>
+                      {this.state.itemDetails.price} / Week
+                    </Badge>{" "}
+                    <Badge variant="secondary">
+                      <span class="fa fa-inr"></span>
+                      {this.state.itemDetails.price} / Month
+                    </Badge>{" "}
+                    <Badge variant="secondary">
+                      <span class="fa fa-inr"></span>
+                      {this.state.itemDetails.price} / 6 Months
+                    </Badge>{" "}
+                  </h5>
+                </div>
+                <br></br>
+                <div className="owner-info">
+                  <div>
+                    <i class="fa fa-user-circle fa-7x"></i>
+                  </div>
+                  <div>
+                    <label>Rented By: John Doe </label>
+                  </div>
+                  <div id="show-owner">
+                    <Button variant="danger" onClick={this.showOwnerDetails}>
+                      Contact Owner
+                    </Button>
+                  </div>
+                  <div id="show-owner-details" className="hidden">
+                    <Button variant="danger" onClick={this.showOwnerDetails}>
+                      +91-99876548
+                    </Button>
+                  </div>
+                  {/* <div style={{marginTop: "10px"}}>
+                    <Button variant="success">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+
+                      WhatsApp
+                    </Button>
+                  </div> */}
+                </div>
               </Jumbotron>
             </div>
           </div>

@@ -1,17 +1,23 @@
-import { Component } from "react";
-import React from "react-bootstrap";
+import React, { Component } from "react";
 import "./categories.css";
 
-import digitalspace from "../../asset/images/rent-imgs/categories/digital-space.png";
-import wfhcategory from "../../asset/images/rent-imgs/categories/wfh-category.png";
-import kidsToys from "../../asset/images/rent-imgs/categories/kids-toys.png";
-import gamesIcon from "../../asset/images/rent-imgs/categories/games-icon.png";
-import furnituresIcon from "../../asset/images/rent-imgs/categories/furnitures-icon.png";
+import { withRouter } from "react-router";
+import { categoriesListJson } from "./categoriesList";
 
 class Categories extends Component {
-  onCategoryClick(event) {
-    event.preventDefault();
-    console.log("category clicked" + event.target.text);
+  constructor(props) {
+    super(props);
+  }
+
+  state = {
+    categoriesList: categoriesListJson
+  };
+
+  onCategoryClick(item) {
+    this.props.history.push({
+      pathname: "/category/" + item.id,
+      state: item,
+    });
   }
 
   render() {
@@ -22,34 +28,24 @@ class Categories extends Component {
             <h4>Categories</h4>
           </span>
         </div>
-        <div className="categories-container">
-          <div className="category" onClick={this.onCategoryClick}>
-            <img src={furnituresIcon} alt="Furniture"></img>
-            <span>Furnitures</span>
-          </div>
-
-          <div className="category">
-            <img src={gamesIcon} alt="Video Games"></img>
-            <span>Video Games</span>
-          </div>
-
-          <div className="category">
-            <img src={kidsToys} alt="Kids Toys"></img>
-            <span>Kids Toys</span>
-          </div>
-
-          <div className="category">
-            <img src={digitalspace} alt="Digital Space"></img>
-            <span>Digital Space</span>
-          </div>
-          <div className="category">
-            <img src={wfhcategory} alt="Work From Home"></img>
-            <span>WFH Things</span>
-          </div>
-        </div>
+        <div className="categories-container">{this.getCategory()}</div>
       </div>
     );
   }
+
+  getCategory() {
+    this.categoriesList = this.state.categoriesList.map((item) => (
+      <div
+        className="category"
+        key={item.id}
+        onClick={() => this.onCategoryClick(item)}
+      >
+        <img src={item.src} alt={item.name}></img>
+        <span>{item.name}</span>
+      </div>
+    ));
+    return this.categoriesList;
+  }
 }
 
-export default Categories;
+export default withRouter(Categories);

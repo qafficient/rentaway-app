@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, Dropdown } from "react-bootstrap";
-import { Nav } from "react-bootstrap";
-
+import { Navbar, Dropdown,Nav } from "react-bootstrap";
 import logo from "../../asset/images/logo/rentaway-logo.png";
 import "./Navbar.css";
 import AddItem from "../item/addItem";
@@ -32,7 +30,7 @@ class NavbarItem extends Component {
 
   render() {
     return (
-      <div class="shadow p-3 mb-5 bg-white rounded">
+      <div className="shadow p-3 mb-5 bg-white rounded">
         <Navbar
           collapseOnSelect
           fixed="top"
@@ -43,7 +41,7 @@ class NavbarItem extends Component {
           <Navbar.Brand>
             <a href="/">
               <img src={logo} alt="RentAway" className="logo-image" />
-              <b>Rent Away</b>
+              <b><i>Rent Anything!!</i></b>
             </a>
           </Navbar.Brand>
           <Navbar.Toggle
@@ -60,7 +58,7 @@ class NavbarItem extends Component {
               <Nav.Link eventKey="3" href="#link">
                 Choose City
               </Nav.Link>
-              <Nav.Link eventKey="4" href="#link">
+              <Nav.Link eventKey="4" href="/category">
                 Categories
               </Nav.Link>
               <Nav.Link eventKey="5" href="#link">
@@ -68,18 +66,8 @@ class NavbarItem extends Component {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link>{this.getAccount()}</Nav.Link>
-              <Nav.Link>
-                <button
-                  type="button"
-                  class="btn btn-secondary nav-link-mobile"
-                  onClick={this.showAddItem}
-                  style={{ width: "inherit", borderRadius: "5px" }}
-                >
-                  Rent Item
-                </button>
-              </Nav.Link>
-            </Nav>
+              {this.getAccount()}
+             </Nav>
           </Navbar.Collapse>
         </Navbar>
 
@@ -94,7 +82,6 @@ class NavbarItem extends Component {
       return (
         <div>
           <div>
-            <i class="bi bi-person"></i>
             <Nav.Link onClick={this.showMyAccount}>
               <b>
                 <i>Welcome</i> {localStorage.getItem("username")}
@@ -117,6 +104,8 @@ class NavbarItem extends Component {
     localStorage.clear();
     window.location.reload();
   }
+
+  
   showMyAccount() {
     console.log("showing account details");
   }
@@ -128,26 +117,26 @@ class NavbarItem extends Component {
         <div className="nav-link-mobile">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              My Account
+            <b>
+                  <i>Welcome</i> {localStorage.getItem("username")}
+                </b>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">
-                <b>
-                  <i>Welcome</i> {localStorage.getItem("username")}
-                </b>
+              <Dropdown.Item onClick={this.showAddItem}>
+                Rent An Item
               </Dropdown.Item>
-              <Dropdown.Item href="" onClick={this.logOut}>
-                Log Out
-              </Dropdown.Item>
-              <Dropdown.Item eventKey="3" href="#link">
+              <Dropdown.Item eventKey="3" href="#">
                 Choose City
               </Dropdown.Item>
-              <Dropdown.Item eventKey="4" href="#link">
+              <Dropdown.Item href="/category">
                 Categories
               </Dropdown.Item>
               <Dropdown.Item eventKey="5" href="#link">
                 Contact Us
+              </Dropdown.Item>
+              <Dropdown.Item href="" onClick={this.logOut}>
+                Log Out
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -155,14 +144,16 @@ class NavbarItem extends Component {
       );
     } else {
       return (
+        <Nav.Link>
         <button
           type="button"
-          class="btn btn-danger nav-link-mobile"
+          className="btn btn-danger nav-link-mobile"
           onClick={this.showLoginModal}
           style={{ width: "inherit", borderRadius: "5px" }}
         >
           Login / SignUp
         </button>
+        </Nav.Link>
       );
     }
   }

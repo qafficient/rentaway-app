@@ -1,0 +1,8 @@
+[
+    {"id":1,"name":"Furnitures", "src": "../../asset/images/rent-imgs/categories/furnitures-icon.png"},
+    {"id":2,"name":"Digital Space", "src": "../../asset/images/rent-imgs/categories/digital-space.png"},
+    {"id":3,"name":"WFH things", "src": "../../asset/images/rent-imgs/categories/wfh-category.png"},
+    {"id":4,"name":"Video Games", "src": "../../asset/images/rent-imgs/categories/games-icon.png"},
+    {"id":5,"name":"Kids Toys", "src": "../../asset/images/rent-imgs/categories/kids-toys.png"}
+
+]

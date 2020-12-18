@@ -36,8 +36,7 @@ class Home extends Component {
           
           style={{
             borderRadius: "2px",
-            background: "#f7f7f7",
-            marginTop: "5px",
+            margin: "40px",
           }}
         >
           <div>
