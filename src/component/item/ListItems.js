@@ -20,9 +20,7 @@ class ListItems extends Component {
   }
 
   goToCarddetails (id) {
-    //localStorage.setItem("selectedCard", cardId);
     this.props.history.push('/item/'+id);
-    // you can manage here to pass the clicked card id to the card details page if needed
   };
 
   render() {
@@ -32,7 +30,7 @@ class ListItems extends Component {
     } else {
       this.items = this.state.listItems.map((item) => (
         <div
-          className="col-md-4 margin-below"
+          className="col-lg-3 col-md-4 col-sm-4 col-xs-6 card-margin-bottom"
           key={item._id}
           onClick={() => this.goToCarddetails(item._id)}
         >

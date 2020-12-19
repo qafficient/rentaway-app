@@ -5,6 +5,8 @@ import FooterPage from "./component/footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ListItemDetails from "./component/item/ListItemDetails";
 import Home from "./component/home";
+import CategoryDetails from "./component/category/categorydetails";
+import CategoryPage from "./component/category/categorypage";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/item/:id" component={ListItemDetails}/>
+          <Route path="/category" exact component={CategoryPage}/>
+          <Route path="/category/:name" component={CategoryDetails}/>
+
         </Switch>
         <FooterPage />
       </div>

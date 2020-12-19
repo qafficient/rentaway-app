@@ -32,14 +32,7 @@ class Home extends Component {
         <div>
           <Categories/>
         </div>
-        <div
-          
-          style={{
-            borderRadius: "2px",
-            background: "#f7f7f7",
-            marginTop: "5px",
-          }}
-        >
+        <div className="list-items-container">
           <div>
             <div>
               <h5>New Launches</h5>

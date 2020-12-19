@@ -21,6 +21,7 @@
     white-space: nowrap;
     transition: 2s;
     justify-content: center;
+    cursor: pointer;
 }
 
 div.category > img {
