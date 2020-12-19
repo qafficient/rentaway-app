@@ -1,4 +1,4 @@
-div.card-margin-bottom:hover {
+div.card:hover {
   transform: scale(1);
   box-shadow: 0 13px 40px -5px rgba(93, 93, 129, 0.12),
     0 8px 32px -8px hsla(0, 0%, 0%, 0.14),
@@ -8,8 +8,13 @@ div.card-margin-bottom:hover {
 div.card {
   align-items: center;
   cursor: pointer;
-  padding:3%;
-  border: none;
+  border:1px solid #e0dbdb;
+}
+
+@media(min-width: 900px){
+  div.card{
+    padding:3%;
+  }
 }
 
 .h5 {
@@ -23,4 +28,5 @@ div.card {
 
 .card-margin-bottom{
   margin-bottom: 10px;
+  padding: 5px;
 }

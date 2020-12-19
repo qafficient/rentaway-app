@@ -4,7 +4,6 @@ import "./ListItem.css";
 
 const ListItem = (props) => {
   return (
-    <div className="card">
       <Card>
         <Card.Img variant="top" src={props.ImgSrc} />
         <Card.Body>
@@ -12,7 +11,6 @@ const ListItem = (props) => {
           <Card.Text>Rent Price: {props.price}</Card.Text>
         </Card.Body>
       </Card>
-    </div>
   );
 };
 
