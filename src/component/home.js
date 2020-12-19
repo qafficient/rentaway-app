@@ -32,7 +32,7 @@ class Home extends Component {
         <div>
           <Categories/>
         </div>
-        <div className="div.list-items-container">
+        <div className="list-items-container">
           <div>
             <div>
               <h5>New Launches</h5>

@@ -26,14 +26,14 @@
 
 @media(min-width: 900px){
     div.list-items-container{
-        border-radius: "2px";
-        margin: "40px",
+        border-radius: 2px;
+        margin: 40px;
     }
 }
 
 @media(max-width: 900px){
     div.list-items-container{
-        border-radius: "2px";
-        margin: "10px",
+        border-radius: 2px;
+        margin: 10px;
     }
 }
