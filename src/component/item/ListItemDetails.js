@@ -4,6 +4,7 @@ import { Carousel, Jumbotron, Button, Badge } from "react-bootstrap";
 import "./ListItemDetails.css";
 import ListItems from "./ListItems";
 import "font-awesome/less/font-awesome.less";
+import { baseApi } from "../common/rentaway-api";
 
 class ListItemDetails extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class ListItemDetails extends Component {
   }
 
   fetchListItemDetails(id) {
-    axios.get("http://3.15.147.176:3001/listitem/" + id).then((res) => {
+    axios.get(baseApi+"/listitem/" + id).then((res) => {
       this.setState({ itemDetails: res.data });
     });
   }

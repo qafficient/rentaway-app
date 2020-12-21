@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ListItem from "./ListItem.js";
 import axios from "axios";
 import { withRouter } from "react-router";
+import { baseApi } from "../common/rentaway-api";
 
 class ListItems extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class ListItems extends Component {
 
   state = {
     listItems: [],
-    dataFile: "http://3.15.147.176:3001/listitem",
+    dataFile: baseApi+"/listitem",
   };
 
   componentWillMount() {

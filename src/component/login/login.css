@@ -1,5 +1,5 @@
 .login-modal{
-    margin: 30px
+    margin: 10px 20px 20px 20px
 }
 
 .social-login{
@@ -24,4 +24,12 @@
 
 .nav-item.nav-link.active{
     background-color: rgb(243 243 243) !important;
+}
+
+.errorMessage{
+    display: none;
+}
+
+.showErrorMsg {
+    border: 1px solid red !important;
 }
