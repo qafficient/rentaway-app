@@ -61,6 +61,11 @@ input.rbt-input-main.form-control.rbt-input{
     height: 42px;
 }
 
+input.rbt-input-main.form-control.rbt-input:hover{
+    background-color:white;
+
+}
+
 .form-control:focus{
     border-color: #e6eaef !important;
 }

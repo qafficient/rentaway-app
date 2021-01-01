@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ListItems from "./item/ListItems";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Badge } from "react-bootstrap";
 import "./home.css";
 
 import mastheadImg1 from "../asset/images/rent-imgs/rent-image-1.jpg";
@@ -25,9 +25,23 @@ class Home extends Component {
       </Carousel.Item>
     ));
     return (
-      <div>
+      <div className="main-container">
         <div className="masthead-container">
           <Carousel>{this.carouselImages}</Carousel>
+        </div>
+        
+        <div className="spacer"></div>
+        <div className="rent-away-msg">
+          <p>SHARE THINGS, OWN EXPERIENCES</p>
+          <span>
+            Your kid is crying for a big toy car, which is lying with someone. Let's share experience by renting them.
+          </span>
+          
+          <div className="show-badge">
+            <h2><Badge pill variant="primary">Let's Rent</Badge></h2>
+            <h2><Badge pill variant="secondary">Explore More</Badge></h2>
+          </div>
+         
         </div>
         <div>
           <Categories/>
@@ -35,13 +49,13 @@ class Home extends Component {
         <div className="list-items-container">
           <div>
             <div>
-              <h5>New Launches</h5>
+              <h4>New Launches</h4>
             </div>
             <ListItems />
           </div>
           <div className="spacer" />
           <div>
-            <h5>Most Popular</h5>
+            <h4>Most Popular</h4>
           </div>
           <ListItems />
         </div>

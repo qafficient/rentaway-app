@@ -144,16 +144,19 @@ class NavbarItem extends Component {
       );
     } else {
       return (
+        
         <Nav.Link>
-        <button
-          type="button"
-          className="btn btn-danger nav-link-mobile"
-          onClick={this.showLoginModal}
-          style={{ width: "inherit", borderRadius: "5px" }}
-        >
-          Login / SignUp
-        </button>
+          <button
+            type="button"
+            className="btn btn-danger nav-link-mobile"
+            onClick={this.showLoginModal}
+            style={{ width: "inherit", borderRadius: "5px" }}
+          >
+            Login / SignUp
+          </button>
+          
         </Nav.Link>
+        
       );
     }
   }

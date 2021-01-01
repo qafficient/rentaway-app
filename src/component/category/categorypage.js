@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import Categories from "./categories";
 import { categoriesListJson } from "./categoriesList";
+import "./categories.css";
 
 
 class CategoryPage extends Component {
@@ -15,7 +16,7 @@ class CategoryPage extends Component {
 
     render(){
         return(
-            <div>
+            <div className="list-items-container">
                 <Categories/>
             </div>
         );

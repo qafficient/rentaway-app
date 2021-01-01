@@ -1,1 +1,1 @@
-export const baseApi ="http://3.15.147.176:3001";
+export const baseApi ="https://api.rentaway.in";
