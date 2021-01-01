@@ -1,1 +1,1 @@
-export const baseApi ="http://localhost:3001";
+export const baseApi ="https://api.rentaway.in";
