@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
-import Categories from "./categories";
 import ListItems from "../item/ListItems";
+import "./categories.css";
 
 class CategoryDetails extends Component{
 
@@ -13,7 +13,7 @@ class CategoryDetails extends Component{
     render(){
         console.log(this.props);
         return(
-            <div>
+            <div className="list-items-container">
                 <h2>
                     {this.props.location.state.name}
                 </h2>

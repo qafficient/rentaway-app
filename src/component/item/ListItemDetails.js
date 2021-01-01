@@ -75,7 +75,7 @@ class ListItemDetails extends Component {
 
                 <div>
                   <h5>Rent Price:</h5>
-                  <h5>
+                  {/* <div>
                     <Badge variant="info">
                       <span class="fa fa-inr"></span>
                       {this.state.itemDetails.price} / Week
@@ -88,12 +88,13 @@ class ListItemDetails extends Component {
                       <span class="fa fa-inr"></span>
                       {this.state.itemDetails.price} / 6 Months
                     </Badge>{" "}
-                  </h5>
+                  </div> */}
+                  {this.getItemRentPrices()}
                 </div>
                 <br></br>
                 <div className="owner-info">
                   <div>
-                    <i class="fa fa-user-circle fa-7x"></i>
+                    <i class="fa fa-user-circle fa-5x"></i>
                   </div>
                   <div>
                     <label>Rented By: John Doe </label>
@@ -108,13 +109,6 @@ class ListItemDetails extends Component {
                       +91-99876548
                     </Button>
                   </div>
-                  {/* <div style={{marginTop: "10px"}}>
-                    <Button variant="success">
-                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
-
-                      WhatsApp
-                    </Button>
-                  </div> */}
                 </div>
               </Jumbotron>
             </div>
@@ -128,6 +122,25 @@ class ListItemDetails extends Component {
         </div>
       );
     }
+  }
+
+  getItemRentPrices(){
+    let itemPrices = this.state.itemDetails.rentprice;
+    
+    let itemPriceBadges = itemPrices.map((item) => (
+      <h5>
+        <Badge variant="info">
+          <span class="fa fa-inr"></span>
+          {item.price} / {item.tenure} - {item.unit}
+        </Badge>
+      </h5>
+    ));
+
+     return(
+      <div className="price-badge">
+        {itemPriceBadges}
+      </div>
+     );
   }
 }
 

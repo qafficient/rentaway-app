@@ -69,5 +69,20 @@ div.listItemImages img {
   margin: 5px !important;
 }
 
+.price-badge,.card-price{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.jumbotron{
+  padding: 2rem 2rem !important;
+}
+
+.card-price p{
+  margin: 5px;
+}
+
 
 

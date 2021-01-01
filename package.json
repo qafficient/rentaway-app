@@ -21,6 +21,7 @@
     "react-scripts": "4.0.1",
     "react-social-login-buttons": "^3.1.0",
     "router": "^1.3.5",
+    "typeface-muli": "^1.1.13",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

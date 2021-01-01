@@ -38,7 +38,7 @@ class ListItems extends Component {
           <ListItem
             ImgSrc={item.images[0].location}
             title={item.name}
-            price={item.price}
+            price={item.rentprice[0].price}
           />
         </div>
       ));

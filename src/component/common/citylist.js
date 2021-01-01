@@ -1,5 +1,11 @@
-export const cityList =
+
+
+export const cityListData =
     [
-        "Bangalore","Delhi", "Mumbai", "Hyderabad", "Chennai"
+        {'id':1,'name':'Bangalore'},
+        {'id':2,'name':'Delhi'},
+        {'id':3,'name':'Mumbain'},
+        {'id':4,'name':'Hyderabad'},
+        {'id':5,'name':'Kolkata'},
   
     ];

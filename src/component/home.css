@@ -1,8 +1,14 @@
-.masthead-container{
+@media all and (min-width:900px){
+.main-container{
     padding: 15px 30px 30px 30px;
     margin-left: 100px;
     margin-right: 100px;
+}
+
+
+.masthead-container{
     box-sizing: border-box;
+}
 }
 
 .masthead-container img {
@@ -36,4 +42,35 @@
         border-radius: 2px;
         margin: 10px;
     }
+}
+
+div.rent-away-msg{
+    border: 1px solid whitesmoke;
+    text-align: left;
+    border-radius: 5px;
+    margin: 10px;
+    
+    
+}
+div.rent-away-msg > p{
+    font-weight: 700;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: var(--orange);
+    font-style: italic;
+}
+
+div.rent-away-msg > span{
+    font-family: sans-serif;
+    font-size: large;
+}
+
+div.show-badge{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 8px;
+    margin-left: 5%;
+    margin-right: 5%;
 }
