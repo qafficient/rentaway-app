@@ -1,0 +1,19 @@
+div.show-city-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #f5f5f5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+div.show-city-list > div{
+    border: 1px solid rgb(201, 190, 190);
+    margin: 5px;
+}
+
+div.show-city-list img{
+    height: 180px !important;
+    width: 180px !important;
+}

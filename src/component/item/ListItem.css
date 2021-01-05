@@ -9,7 +9,7 @@ div.card {
   align-items: center;
   cursor: pointer;
   border:1px solid #e0dbdb;
-  padding:3%;
+  padding-top:3%;
   border-radius: 10px;
 }
 
@@ -35,7 +35,7 @@ div.card {
 
 .card-img-top {
   height: 165px !important;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media(max-width: 900px){
@@ -71,4 +71,14 @@ div.card-title.h5{
 }
 p.card-text{
   font-weight: 500;
+}
+
+div.social-icons{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+  width: 100%;
+}
+div.social-icons > svg{
+  margin: 5px;
 }

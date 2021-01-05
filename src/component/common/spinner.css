@@ -1,0 +1,5 @@
+div.show-spinner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

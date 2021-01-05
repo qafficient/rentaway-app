@@ -36,7 +36,7 @@ class Categories extends Component {
   getCategory() {
     this.categoriesList = this.state.categoriesList.map((item) => (
       <div
-        className="category"
+        className="category with-hover"
         key={item.id}
         onClick={() => this.onCategoryClick(item)}
       >
