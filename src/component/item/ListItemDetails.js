@@ -6,6 +6,7 @@ import ListItems from "./ListItems";
 import "font-awesome/less/font-awesome.less";
 import { baseApi } from "../common/rentaway-api";
 import BackComponent from "../common/backcomponent";
+import { TwitterIcon, FacebookIcon, WhatsappIcon } from "react-share";
 
 class ListItemDetails extends Component {
   constructor(props) {
@@ -65,10 +66,14 @@ class ListItemDetails extends Component {
 
       return (
         <div id="list-items-container">
-          <div>
+          <div className="social-back">
             <BackComponent />
             <div>
-            {/* <h4>{this.state.itemDetails.name}</h4> */}
+            <div className="social-icons">
+              <TwitterIcon size={25} round={true} />
+              <WhatsappIcon size={25} round={true} />
+              <FacebookIcon size={25} round={true}/>
+          </div>
           </div>
           </div>
           <div className="itemDetailscontainer">

@@ -31,7 +31,13 @@ class CategoryDetails extends Component {
     });
   }
 
+  componentDidMount(){
+    var element= document.getElementsByClassName("category show-selected")[0];
+    element.scrollIntoView();
+  }
+
   render() {
+    window.scrollTo(0,0);
     return (
       <div className="list-items-container">
         <div className="categories-container with-back">

@@ -19,8 +19,8 @@ div.card {
   }
 
   div.list-items-container, #list-items-container{
-    margin-left: 60px !important;
-    margin-right: 60px !important;
+    margin-left: 40px !important;
+    margin-right: 40px !important;
   }
 
   .card-margin-bottom{
@@ -67,10 +67,10 @@ div.card-body{
 }
 
 div.card-title.h5{
-  font-weight: 700;
+  font-weight: 500;
 }
 p.card-text{
-  font-weight: 500;
+  font-weight: 400;
 }
 
 div.social-icons{
@@ -81,4 +81,15 @@ div.social-icons{
 }
 div.social-icons > svg{
   margin: 5px;
+}
+
+.social-back{
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.social-back > div {
+  display: flex;
+  width: 50%;
 }
