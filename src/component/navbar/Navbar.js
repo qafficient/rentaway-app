@@ -1,21 +1,24 @@
 import React, { Component } from "react";
-import { Navbar, Dropdown,Nav } from "react-bootstrap";
+import { Navbar, Dropdown, Nav } from "react-bootstrap";
 import logo from "../../asset/images/logo/rentaway-logo.png";
 import "./Navbar.css";
 import AddItem from "../item/addItem";
 import Login from "../login/login";
 import "font-awesome/css/font-awesome.min.css";
+import ShowCityModal from "../common/ShowCity";
 
 class NavbarItem extends Component {
   state = {
     addItemModalShow: false,
     showLoginModal: false,
+    showCityModal: false,
   };
   constructor(props) {
     super(props);
     this.state = { addItemModalShow: false, showLoginModal: false };
     this.showAddItem = this.showAddItem.bind(this);
     this.showLoginModal = this.showLoginModal.bind(this);
+    this.showCityModal = this.showCityModal.bind(this);
   }
 
   showAddItem(event) {
@@ -26,6 +29,11 @@ class NavbarItem extends Component {
   showLoginModal(event) {
     event.preventDefault();
     this.setState({ showLoginModal: true, addItemModalShow: false });
+  }
+
+  showCityModal(event) {
+    event.preventDefault();
+    this.setState({ showCityModal: true });
   }
 
   render() {
@@ -41,7 +49,9 @@ class NavbarItem extends Component {
           <Navbar.Brand>
             <a href="/">
               <img src={logo} alt="RentAway" className="logo-image" />
-              <b><i>Rent Anything!!</i></b>
+              <b>
+                <i>Rent Anything!!</i>
+              </b>
             </a>
           </Navbar.Brand>
           <Navbar.Toggle
@@ -55,7 +65,7 @@ class NavbarItem extends Component {
               <Nav.Link eventKey="2" onClick={this.showAddItem}>
                 Rent an Item{" "}
               </Nav.Link>
-              <Nav.Link eventKey="3" href="#link">
+              <Nav.Link eventKey="3" onClick={this.showCityModal}>
                 Choose City
               </Nav.Link>
               <Nav.Link eventKey="4" href="/category">
@@ -65,9 +75,7 @@ class NavbarItem extends Component {
                 Contact Us
               </Nav.Link>
             </Nav>
-            <Nav>
-              {this.getAccount()}
-             </Nav>
+            <Nav>{this.getAccount()}</Nav>
           </Navbar.Collapse>
         </Navbar>
 
@@ -105,7 +113,6 @@ class NavbarItem extends Component {
     window.location.reload();
   }
 
-  
   showMyAccount() {
     console.log("showing account details");
   }
@@ -117,21 +124,19 @@ class NavbarItem extends Component {
         <div className="nav-link-mobile">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-            <b>
-                  <i>Welcome</i> {localStorage.getItem("username")}
-                </b>
+              <b>
+                <i>Welcome</i> {localStorage.getItem("username")}
+              </b>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
               <Dropdown.Item onClick={this.showAddItem}>
                 Rent An Item
               </Dropdown.Item>
-              <Dropdown.Item eventKey="3" href="#">
+              <Dropdown.Item eventKey="3" onClick={this.showCityModal}>
                 Choose City
               </Dropdown.Item>
-              <Dropdown.Item href="/category">
-                Categories
-              </Dropdown.Item>
+              <Dropdown.Item href="/category">Categories</Dropdown.Item>
               <Dropdown.Item eventKey="5" href="#link">
                 Contact Us
               </Dropdown.Item>
@@ -144,7 +149,6 @@ class NavbarItem extends Component {
       );
     } else {
       return (
-        
         <Nav.Link>
           <button
             type="button"
@@ -154,9 +158,7 @@ class NavbarItem extends Component {
           >
             Login / SignUp
           </button>
-          
         </Nav.Link>
-        
       );
     }
   }
@@ -166,6 +168,8 @@ class NavbarItem extends Component {
       return <AddItem show={this.state.addItemModalShow} />;
     } else if (this.state.showLoginModal) {
       return <Login show={this.state.showLoginModal} />;
+    } else if (this.state.showCityModal) {
+      return <ShowCityModal show={true} />;
     }
   }
 }

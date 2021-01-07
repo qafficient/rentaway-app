@@ -12,12 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
-        <div className="spacer" />
-        <div>
-          <Search />
-        </div>
-        
+        <Navbar />    
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/item/:id" component={ListItemDetails}/>

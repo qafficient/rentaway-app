@@ -1,8 +1,8 @@
 @media all and (min-width:900px){
 .main-container{
     padding: 15px 30px 30px 30px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 
@@ -55,7 +55,7 @@ div.rent-away-msg{
 div.rent-away-msg > p{
     font-weight: 700;
     font-weight: bolder;
-    font-size: xx-large;
+    font-size: x-large;
     color: var(--orange);
     font-style: italic;
 }

@@ -7,6 +7,8 @@ import axios from "axios";
 import { baseApi } from "../common/rentaway-api";
 import { categoriesListJson } from "../category/categoriesList";
 import { cityListData as cityListJson } from "../common/citylist";
+import  ShowSpinner from '../common/showspinner';
+
 
 class AddItem extends Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class AddItem extends Component {
         itemImage: [],
       },
       itemAdded: null,
+      showSpinner: false,
     };
 
     this.addItem = this.addItem.bind(this);
@@ -42,7 +45,7 @@ class AddItem extends Component {
 
     if (
       newItemData.name.trim().length === 0 ||
-      newItemData.name.trim().length > 20
+      newItemData.name.trim().length > 40
     ) {
       isNameValid = this.updateClassToShowError("name");
     } else {
@@ -181,18 +184,21 @@ class AddItem extends Component {
         formData.append("itemImage", item);
       });
 
+      this.setState({ showSpinner: true });
       axios
         .post(baseApi + "/listitem", formData)
         .then((result) => {
           if (result.status === 201) {
             this.setState({
               itemAdded: true,
+              showSpinner: false,
             });
           }
         })
         .catch((error) => {
           this.setState({
             itemAdded: false,
+            showSpinner: false,
           });
         });
     }
@@ -219,7 +225,7 @@ class AddItem extends Component {
                   name="name"
                   id="name"
                   value={this.state.newItem.name}
-                  placeholder="Item Name in (max 20 characters)"
+                  placeholder="Item Name in (max 40 characters)"
                   onChange={this.handleChange}
                 />
 
@@ -257,6 +263,7 @@ class AddItem extends Component {
             </Form>
           </Modal.Body>
           <div>{this.showAlert()}</div>
+          <div>{this.showSpinner()}</div>
           <Modal.Footer>
             <Button
               variant="secondary"
@@ -374,7 +381,8 @@ class AddItem extends Component {
     let message;
     if (this.state.itemAdded) {
       variant = "success";
-      message = "Your Item is posted and ready for Renting!!";
+      message =
+        "Your Item is posted and ready for Renting!!,close this message to go back to main page.";
     } else {
       variant = "danger";
       message = "We could not add your item, our engineers are working on it!!";
@@ -389,6 +397,16 @@ class AddItem extends Component {
         <p className="mb-0">{message}</p>
       </Alert>
     );
+  }
+
+  showSpinner() {
+    if (this.state.showSpinner) {
+      return (
+        <div>
+          <ShowSpinner />
+        </div>
+      );
+    }
   }
 }
 

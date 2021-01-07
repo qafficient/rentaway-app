@@ -8,6 +8,7 @@ import mastheadImg2 from "../asset/images/rent-imgs/rent-image-2.jpg";
 import mastheadImg3 from "../asset/images/rent-imgs/rent-image-3.jpg";
 import mastheadImg4 from "../asset/images/rent-imgs/rent-image-4.jpg";
 import Categories from "./category/categories";
+import Search from "./search/Search";
 
 class Home extends Component {
   state = {
@@ -19,13 +20,14 @@ class Home extends Component {
     this.state.images.push(mastheadImg3);
     this.state.images.push(mastheadImg2);
     this.state.images.push(mastheadImg1);
-    this.carouselImages = this.state.images.map((item) => (
-      <Carousel.Item key={item._id}>
+    this.carouselImages = this.state.images.map((item, index) => (
+      <Carousel.Item key={index}>
         <img className="d-block w-100" src={item} alt="First slide" />
       </Carousel.Item>
     ));
     return (
       <div className="main-container">
+        <Search/>
         <div className="masthead-container">
           <Carousel>{this.carouselImages}</Carousel>
         </div>
@@ -38,8 +40,8 @@ class Home extends Component {
           </span>
           
           <div className="show-badge">
-            <h2><Badge pill variant="primary">Let's Rent</Badge></h2>
-            <h2><Badge pill variant="secondary">Explore More</Badge></h2>
+            <h3><Badge pill variant="primary">Let's Rent</Badge></h3>
+            <h3><Badge pill variant="secondary">Explore More</Badge></h3>
           </div>
          
         </div>

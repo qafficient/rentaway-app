@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import { TwitterIcon, FacebookIcon, WhatsappIcon } from "react-share";
 import "./ListItem.css";
 
 const ListItem = (props) => {
@@ -11,8 +12,13 @@ const ListItem = (props) => {
           <div className="card-price">
             <Card.Text>Rent Price: </Card.Text>
             <Card.Text>
-              <span class="fa fa-inr"></span>
+              <span className="fa fa-inr"></span>
               {props.price}</Card.Text>
+          </div>
+          <div className="social-icons">
+            <TwitterIcon size={25} round={true} />
+            <WhatsappIcon size={25} round={true} />
+            <FacebookIcon size={25} round={true}/>
           </div>
         </Card.Body>
       </Card>

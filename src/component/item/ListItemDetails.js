@@ -5,6 +5,8 @@ import "./ListItemDetails.css";
 import ListItems from "./ListItems";
 import "font-awesome/less/font-awesome.less";
 import { baseApi } from "../common/rentaway-api";
+import BackComponent from "../common/backcomponent";
+import { TwitterIcon, FacebookIcon, WhatsappIcon } from "react-share";
 
 class ListItemDetails extends Component {
   constructor(props) {
@@ -31,7 +33,7 @@ class ListItemDetails extends Component {
   }
 
   fetchListItemDetails(id) {
-    axios.get(baseApi+"/listitem/" + id).then((res) => {
+    axios.get(baseApi + "/listitem/" + id).then((res) => {
       this.setState({ itemDetails: res.data });
     });
   }
@@ -64,6 +66,16 @@ class ListItemDetails extends Component {
 
       return (
         <div id="list-items-container">
+          <div className="social-back">
+            <BackComponent />
+            <div>
+            <div className="social-icons">
+              <TwitterIcon size={25} round={true} />
+              <WhatsappIcon size={25} round={true} />
+              <FacebookIcon size={25} round={true}/>
+          </div>
+          </div>
+          </div>
           <div className="itemDetailscontainer">
             <div className="listItemImages">
               <Carousel>{this.carouselImages}</Carousel>
@@ -75,20 +87,6 @@ class ListItemDetails extends Component {
 
                 <div>
                   <h5>Rent Price:</h5>
-                  {/* <div>
-                    <Badge variant="info">
-                      <span class="fa fa-inr"></span>
-                      {this.state.itemDetails.price} / Week
-                    </Badge>{" "}
-                    <Badge variant="secondary">
-                      <span class="fa fa-inr"></span>
-                      {this.state.itemDetails.price} / Month
-                    </Badge>{" "}
-                    <Badge variant="secondary">
-                      <span class="fa fa-inr"></span>
-                      {this.state.itemDetails.price} / 6 Months
-                    </Badge>{" "}
-                  </div> */}
                   {this.getItemRentPrices()}
                 </div>
                 <br></br>
@@ -124,9 +122,9 @@ class ListItemDetails extends Component {
     }
   }
 
-  getItemRentPrices(){
+  getItemRentPrices() {
     let itemPrices = this.state.itemDetails.rentprice;
-    
+
     let itemPriceBadges = itemPrices.map((item) => (
       <h5>
         <Badge variant="info">
@@ -136,11 +134,7 @@ class ListItemDetails extends Component {
       </h5>
     ));
 
-     return(
-      <div className="price-badge">
-        {itemPriceBadges}
-      </div>
-     );
+    return <div className="price-badge">{itemPriceBadges}</div>;
   }
 }
 
