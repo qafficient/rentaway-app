@@ -1,11 +1,17 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { TwitterIcon, FacebookIcon, WhatsappIcon } from "react-share";
 import "./ListItem.css";
+import { withRouter } from "react-router";
+
+const showItemDetails = (props) => {
+  console.log(props)
+  props.history.push("/item/" + props.id);
+};
 
 const ListItem = (props) => {
   return (
-      <Card>
+    <Card>
+      <div onClick={() => showItemDetails(props)}>
         <Card.Img variant="top" src={props.ImgSrc} />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
@@ -13,16 +19,13 @@ const ListItem = (props) => {
             <Card.Text>Rent Price: </Card.Text>
             <Card.Text>
               <span className="fa fa-inr"></span>
-              {props.price}</Card.Text>
-          </div>
-          <div className="social-icons">
-            <TwitterIcon size={25} round={true} />
-            <WhatsappIcon size={25} round={true} />
-            <FacebookIcon size={25} round={true}/>
+              {props.price} / {props.tenure}{props.unit}
+            </Card.Text>
           </div>
         </Card.Body>
-      </Card>
+      </div>
+    </Card>
   );
 };
 
-export default ListItem;
+export default withRouter(ListItem);

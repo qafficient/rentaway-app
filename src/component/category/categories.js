@@ -15,7 +15,7 @@ class Categories extends Component {
 
   onCategoryClick(item) {
     this.props.history.push({
-      pathname: "/category/" + item.id,
+      pathname: "/categories",
       state: item,
     });
   }
