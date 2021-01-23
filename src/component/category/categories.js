@@ -5,9 +5,7 @@ import { withRouter } from "react-router";
 import { categoriesListJson } from "./categoriesList";
 
 class Categories extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   state = {
     categoriesList: categoriesListJson

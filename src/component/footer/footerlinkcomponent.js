@@ -21,12 +21,14 @@ export function DataUsageProtection() {
   return (
     <div className="footer-desc">
       <h3>Data Usage Protection</h3>
-      <p>
-        Our aim is to foster a community of sharing with trust and care. While
-        lending, should your item be mishandled or stolen, we’d like to have
-        your back! When you lend with MyRent, every item is covered by our
-        guarantee up to
-      </p>
+      <div>
+        <p>
+          Our aim is to foster a community of sharing with trust and care. While
+          lending, should your item be mishandled or stolen, we’d like to have
+          your back! When you lend with MyRent, every item is covered by our
+          guarantee up to
+        </p>
+      </div>
     </div>
   );
 }

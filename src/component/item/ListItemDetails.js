@@ -11,9 +11,6 @@ import ShareOnWhatsApp from "../social/whatsapp-share";
 import ShareOnTwiter from "../social/twitter-share";
 
 class ListItemDetails extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   state = {
     itemDetails: null,

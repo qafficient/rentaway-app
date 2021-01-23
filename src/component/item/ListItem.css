@@ -80,7 +80,7 @@ p.card-text{
 div.social-icons{
   display: flex;
   flex-direction: row-reverse;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
 }
 

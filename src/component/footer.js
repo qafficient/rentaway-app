@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import { MDBContainer, MDBFooter } from "mdbreact";
 import ShareOnTwiiter from "./social/twitter-share";
 import ShareOnFacebook from "./social/facebook-share";
@@ -22,17 +22,17 @@ const FooterPage = () => {
       </div>
       <div>
         <MDBContainer fluid>
-          <div class="footer-links">
+          <div className="footer-links">
             <p>For a safe rental</p>
             <Link to="/datausage">Data usage protection</Link>
             <Link to="/lenderprotection">Lender Protection Guide</Link>
           </div>
 
-          <div class="footer-links">
+          <div className="footer-links">
             <p>More about us</p>
             <Link to="/termsandconditions">Terms and Conditions</Link>
-            <Link to="aboutus">About Us</Link>
-            <Link to="contactus">Contact Us</Link>
+            <Link to="/aboutus">About Us</Link>
+            <Link to="/contactus">Contact Us</Link>
           </div>
         </MDBContainer>
       </div>

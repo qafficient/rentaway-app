@@ -1,6 +1,5 @@
 import "./App.css";
 import Navbar from "./component/navbar/Navbar.js";
-import Search from "./component/search/Search";
 import FooterPage from "./component/footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ListItemDetails from "./component/item/ListItemDetails";

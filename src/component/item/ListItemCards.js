@@ -5,9 +5,7 @@ import SkeletonCardLoader from "./SkeletonCardLoader.js";
 
 
 class ListItemCards extends Component {
-  constructor(props) {
-    super(props);
-  }
+ 
 
   render() {
     
