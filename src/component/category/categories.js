@@ -5,9 +5,7 @@ import { withRouter } from "react-router";
 import { categoriesListJson } from "./categoriesList";
 
 class Categories extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   state = {
     categoriesList: categoriesListJson
@@ -15,7 +13,7 @@ class Categories extends Component {
 
   onCategoryClick(item) {
     this.props.history.push({
-      pathname: "/category/" + item.id,
+      pathname: "/categories",
       state: item,
     });
   }

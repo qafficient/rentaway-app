@@ -6,14 +6,11 @@ import { Component } from "react";
 
 class ShowCityModal extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor(){
+    super();
+    this.state = {showModal: true};
   }
-
-  state={
-    showModal: true
-    };
-
+ 
   handleClose = () => this.setState({showModal:false});
 
 

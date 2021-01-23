@@ -7,9 +7,6 @@ import ListItemCards from "./ListItemCards.js";
 import SkeletonCardLoader from "./SkeletonCardLoader.js";
 
 class ListItems extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   state = {
     listItems: [],

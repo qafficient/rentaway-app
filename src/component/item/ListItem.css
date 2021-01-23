@@ -13,6 +13,10 @@ div.card {
   border-radius: 10px;
 }
 
+div.card > div{
+  width: 100%;
+}
+
 @media(min-width: 900px){
   div.card{
     padding:5%;
@@ -76,11 +80,8 @@ p.card-text{
 div.social-icons{
   display: flex;
   flex-direction: row-reverse;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
-}
-div.social-icons > svg{
-  margin: 5px;
 }
 
 .social-back{

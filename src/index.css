@@ -19,3 +19,6 @@ code {
 h4{
   font-weight: bolder !important;
 }
+.react-share__ShareButton{
+  padding: 5px !important;
+}

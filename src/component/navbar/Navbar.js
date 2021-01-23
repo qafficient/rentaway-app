@@ -6,34 +6,46 @@ import AddItem from "../item/addItem";
 import Login from "../login/login";
 import "font-awesome/css/font-awesome.min.css";
 import ShowCityModal from "../common/ShowCity";
+import { categoriesListJson } from "../category/categoriesList";
+import { withRouter } from "react-router";
 
 class NavbarItem extends Component {
   state = {
     addItemModalShow: false,
     showLoginModal: false,
-    showCityModal: false,
+    showCityModal: false
   };
   constructor(props) {
     super(props);
-    this.state = { addItemModalShow: false, showLoginModal: false };
+    this.setState({ addItemModalShow: false, showLoginModal: false, showCityModal: false });
     this.showAddItem = this.showAddItem.bind(this);
     this.showLoginModal = this.showLoginModal.bind(this);
     this.showCityModal = this.showCityModal.bind(this);
+    this.onCategoryClick = this.onCategoryClick.bind(this);
+
   }
 
   showAddItem(event) {
     event.preventDefault();
-    this.setState({ addItemModalShow: true, showLoginModal: false });
+    this.setState({ addItemModalShow: true, showLoginModal: false, showCityModal:false });
   }
 
   showLoginModal(event) {
     event.preventDefault();
-    this.setState({ showLoginModal: true, addItemModalShow: false });
+    this.setState({ showLoginModal: true, addItemModalShow: false, showCityModal:false });
   }
 
   showCityModal(event) {
     event.preventDefault();
-    this.setState({ showCityModal: true });
+    this.setState({ showLoginModal: false, addItemModalShow: false, showCityModal: true });
+  }
+
+  onCategoryClick() {
+    let item = categoriesListJson[0];
+    this.props.history.push({
+      pathname: "/categories",
+      state: item,
+    });
   }
 
   render() {
@@ -68,7 +80,7 @@ class NavbarItem extends Component {
               <Nav.Link eventKey="3" onClick={this.showCityModal}>
                 Choose City
               </Nav.Link>
-              <Nav.Link eventKey="4" href="/category">
+              <Nav.Link eventKey="4" onClick={this.onCategoryClick}>
                 Categories
               </Nav.Link>
               <Nav.Link eventKey="5" href="#link">
@@ -136,7 +148,7 @@ class NavbarItem extends Component {
               <Dropdown.Item eventKey="3" onClick={this.showCityModal}>
                 Choose City
               </Dropdown.Item>
-              <Dropdown.Item href="/category">Categories</Dropdown.Item>
+              <Dropdown.Item onClick={this.onCategoryClick}>Categories</Dropdown.Item>
               <Dropdown.Item eventKey="5" href="#link">
                 Contact Us
               </Dropdown.Item>
@@ -165,13 +177,16 @@ class NavbarItem extends Component {
 
   renderModal() {
     if (this.state.addItemModalShow) {
-      return <AddItem show={this.state.addItemModalShow} />;
+      this.state.addItemModalShow = false;
+      return <AddItem show={true} />;
     } else if (this.state.showLoginModal) {
-      return <Login show={this.state.showLoginModal} />;
+      this.state.showLoginModal = false;
+      return <Login show={true} />;
     } else if (this.state.showCityModal) {
+      this.state.showCityModal=false;
       return <ShowCityModal show={true} />;
     }
   }
 }
 
-export default NavbarItem;
+export default withRouter(NavbarItem);
